@@ -1,7 +1,7 @@
-librato-collectd-docker
+librato-collectd-docker - With container names
 =======================
 
-This project contains a custom collectd *Exec* plugin for gathering statistics from running Docker containers using the Docker API. At this time, the installation steps are brief but manual.
+This project is a lazy fork of librato-collectd-docker's custom collectd *Exec* plugin for gathering statistics from running Docker containers using the Docker API. At this time, the installation steps are brief but manual. The different between this and fork is to better work with output such as Influx by removing the word "librato" from all the metrics and reporting the container's name rather then the ID.
 
 The output of this plugin is formatted for the Librato monitoring service, although you could technically send it to any compatible metrics receiver. Each metric defines its `plugin_instance` in the format `librato-<container_id>`, which is then rewritten on the fly in Librato's API to extract the container identifier into Librato's *source* dimension, and to remove the `librato-` marker.
 
